@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 function Tasks({ tasks }) {
+  const { t } = useTranslation();
   return (
     <div className="overflow-x-auto">
   <table className="table">
@@ -8,8 +10,8 @@ function Tasks({ tasks }) {
     <thead>
       <tr>
         <th></th>
-        <th>Task</th>
-        <th>Action</th>
+        <th>{t('task')}</th>
+        <th>{t('action')}</th>
       </tr>
     </thead>
     <tbody>
@@ -17,19 +19,19 @@ function Tasks({ tasks }) {
       <tr className="bg-base-200">
         <th>1</th>
         <td>Goto Gym</td>
-        <td>Edit/Delete</td>
+        <td>{t('edit')} / {t('delete')}</td>
       </tr>
       {/* row 2 */}
       <tr>
         <th>2</th>
         <td>Goto office</td>
-        <td>Edit/Delete</td>
+        <td>{t('edit')} / {t('delete')}</td>
       </tr>
       {/* row 3 */}
       <tr>
         <th>3</th>
         <td>Goto movie</td>
-        <td>Edit/Delete</td>
+        <td>{t('edit')} / {t('delete')}</td>
       </tr>
     </tbody>
   </table>

@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 function Header() {
+  const { t } = useTranslation();
   return (
     <div className="navbar bg-base-100">
   <div className="flex-1">
@@ -19,12 +21,12 @@ function Header() {
       <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
         <li>
           <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
+            {t('profile')}
+            <span className="badge">{t('new')}</span>
           </a>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><a>{t('settings')}</a></li>
+        <li><a>{t('logout')}</a></li>
       </ul>
     </div>
   </div>
