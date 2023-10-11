@@ -10,6 +10,7 @@
 }*/
 // LanguageSwitcher.js
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -22,6 +23,9 @@ const LanguageSwitcher = () => {
     <div>
       <button className="btn btn-primary mr-4" onClick={() => changeLanguage('en')}>English</button>
       <button className="btn btn-secondary" onClick={() => changeLanguage('gu')}>Gujarati</button>
+      <button>
+        <Link className='btn btn-outline btn-success ml-10' href="/next">Next Page</Link>
+      </button>
     </div>
   );
 };
