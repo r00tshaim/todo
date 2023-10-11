@@ -17,21 +17,57 @@ export default function Home() {
 
 "use client";
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "@/app/components/Header"
 import Tasks from "@/app/components/Tasks"
 import LanguageSwitcher from "@/app/components/LanguageSwitcher";
+import AddTask from "@/app/components/AddTask";
 
 
 export default function Home() {
   const [tasks, setTasks] = useState([])
 
-  return (
-    <>
-    <Header/>
-    <LanguageSwitcher />
-    <Tasks tasks={tasks}/>
-    </>
-  )
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try{
+        const res = await fetch('/api/task/')
+        const data = await res.json();
+        const tasks = data.tasks;
+        setTasks(tasks);
+        console.log("tasks=",tasks)
+  
+        if(res.ok){
+          console.log(`got tasks data`)
+        } else {
+          console.log(`getting tasks data failed`)
+        }
+      }catch(err) {
+        console.log(`Error with GET call error`, err)
+      }
+    }
+
+    fetchTasks();
+
+  },[])
+
+  if(tasks.length === 0){
+    return (
+      <>
+      <Header/>
+      <LanguageSwitcher />
+      <p>Loading....</p>
+      </>
+    )
+  } else {
+
+    return (
+      <>
+      <Header/>
+      <LanguageSwitcher />
+      <AddTask />
+      <Tasks tasks={tasks}/>
+      </>
+    )
+  }
 }
 

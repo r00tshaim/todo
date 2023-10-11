@@ -20,8 +20,8 @@ const LanguageSwitcher = () => {
 
   return (
     <div>
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('gu')}>Gujarati</button>
+      <button className="btn btn-primary mr-4" onClick={() => changeLanguage('en')}>English</button>
+      <button className="btn btn-secondary" onClick={() => changeLanguage('gu')}>Gujarati</button>
     </div>
   );
 };
