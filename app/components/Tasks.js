@@ -1,7 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 
-function Tasks({ tasks }) {
+function Tasks({ tasks, deleteTaskHandler }) {
+
   const { t } = useTranslation();
   return (
     <div className="overflow-x-auto">
@@ -18,17 +19,11 @@ function Tasks({ tasks }) {
       {/* row 1 */}
         {tasks && tasks.map((item) => (
           <tr key={item._id}>
-          <th>{item._id}</th>
-          <td>{item.name}</td>
-          <td>{t('edit')} / {t('delete')}</td>
-        </tr>
+            <td>{item._id}</td>
+            <td>{item.name}</td>
+            <td><button className="btn btn-outline btn-info">{t('edit')}</button> <button onClick={() => {deleteTaskHandler(item._id)}} className="btn btn-outline btn-warning">{t('delete')} X</button></td>
+          </tr>
         ))}
-      {/* row 3 */}
-      <tr>
-        <th>3</th>
-        <td>Goto movie</td>
-        <td>{t('edit')} / {t('delete')}</td>
-      </tr>
     </tbody>
   </table>
 </div>

@@ -26,6 +26,25 @@ import AddTask from "@/app/components/AddTask";
 
 export default function Home() {
   const [tasks, setTasks] = useState([])
+  const [deleteSuccess, setDeleteSuccess] = useState(false)
+
+  const deleteTaskHandler = async (taskId) => {
+    try {
+      //console.log(`deleteTaskHandler called for taskid=${taskId}`)
+      const res = await fetch(`/api/task?taskId=${taskId}`, {
+        method: 'DELETE',
+      });
+  
+      if (res.ok) {
+        console.log(`Task deleted with id=${taskId}`);
+        setDeleteSuccess(true)
+      } else {
+        console.log(`Task deletion failed with id=${taskId}`);
+      }
+    } catch (err) {
+      console.log(`Error while deleting task with id=${taskId} DELETE call error ${err}`);
+    }
+  };
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -48,7 +67,7 @@ export default function Home() {
 
     fetchTasks();
 
-  },[])
+  },[deleteSuccess])
 
   if(tasks.length === 0){
     return (
@@ -65,7 +84,7 @@ export default function Home() {
       <Header/>
       <LanguageSwitcher />
       <AddTask />
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} deleteTaskHandler={deleteTaskHandler}/>
       </>
     )
   }
