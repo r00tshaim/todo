@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Gujrati-Saral-1";   /*Can be any text*/
+    src: local("Gujrati-Saral-1"),
+      url("../fonts/Gujrati-Saral-1.ttf") format("truetype");
+}
+  

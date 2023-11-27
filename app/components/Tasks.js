@@ -20,7 +20,7 @@ function Tasks({ tasks, deleteTaskHandler }) {
         {tasks && tasks.map((item) => (
           <tr key={item._id}>
             <td>{item._id}</td>
-            <td>{item.name}</td>
+            <td style={{fontFamily: "Gujrati-Saral-1", fontSize: '20px'}}>{item.name}</td>
             <td><button className="btn btn-outline btn-info">{t('edit')}</button> <button onClick={() => {deleteTaskHandler(item._id)}} className="btn btn-outline btn-warning">{t('delete')} X</button></td>
           </tr>
         ))}
