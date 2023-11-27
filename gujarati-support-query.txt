@@ -1,0 +1,14 @@
+So when I have input field with specific font style as 'gujarati saral' which is custom font downloaded and lang as gu (ie gujarati), when this input field submitted on console log we can see english characters corresponding to that gujarati word
+
+Bing AI
+Generating answers for you…
+
+The lang attribute and the font-family property work independently of each other. The lang attribute in HTML specifies the language of the content, but it doesn’t affect how the browser interprets the input from the user. When a user types into an input field, the browser interprets the keystrokes based on the keyboard layout that’s currently active on the user’s system, not the lang attribute or the font-family property.
+
+The font-family property only affects the display of the content, not how it’s interpreted. So, even if you’re using a custom font like ‘Gujarati Saral’, the characters that are logged in the console will depend on the user’s keyboard input, not the font.
+
+If you want to capture input in Gujarati script and have it logged as such in the console, the user would need to use a Gujarati keyboard layout. If the user is typing in Gujarati phonetically using an English keyboard layout, the logged input will be the phonetic English characters, not the Gujarati script.
+
+If you want to convert phonetic English input into Gujarati script, you would need to use a transliteration library or API. There are several available, including Google’s Input Tools (formerly Google Transliterate API), which can convert phonetic English input into a variety of scripts, including Gujarati. However, please note that as of my knowledge cutoff in 2021, Google has deprecated this API, and you may need to find an alternative solution.
+
+I hope this helps! Let me know if you have any other questions.
